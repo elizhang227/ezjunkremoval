@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    background: #333;
+    color: white;
+    padding: 1rem 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo h1 {
+    font-size: 2rem;
+}
+
+header nav ul {
+    list-style-type: none;
+}
+
+header nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.hero {
+    background: url('images/green-forest-aerial-view-photo.jpeg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 3rem 0;
+    height: 500px;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.cta-button {
+    background: #4CD43B;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #3b9e2b;
+}
+
+.how-it-works, .services, .why-choose-us {
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.how-it-works .steps, .why-choose-us .reasons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.step, .reason {
+    width: 30%;
+}
+
+.step img, .reason img {
+    max-width: 50px;
+    margin-bottom: 1rem;
+}
+
+.services ul {
+    list-style-type: none;
+    margin-bottom: 1rem;
+}
+
+.services ul li {
+    font-size: 1.25rem;
+    margin: 10px 0;
+}
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
