@@ -1,3 +1,85 @@
+/* Header Styles */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 32px;
+    background: #fff;
+    border-top: 8px solid #4CD43B;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.header-left .logo {
+    height: 60px;
+}
+
+.header-nav {
+    display: flex;
+    gap: 32px;
+    flex: 1;
+    justify-content: center;
+}
+
+.header-nav a {
+    color: #222;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0 8px;
+    transition: color 0.2s;
+}
+
+.header-nav a.active {
+    color: #c8102e;
+}
+
+.header-nav .dropdown {
+    color: #009444;
+    font-size: 0.8em;
+    margin-left: 4px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.header-right .social img {
+    width: 28px;
+    height: 28px;
+    margin-right: 4px;
+}
+
+.call-btn {
+    border: 2px solid #c8102e;
+    color: #c8102e;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-right: 8px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.call-btn:hover {
+    background: #c8102e;
+    color: #fff;
+}
+
+.quote-btn {
+    background: #c8102e;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.quote-btn:hover {
+    background: #a00d23;
+}
 * {
     margin: 0;
     padding: 0;
@@ -10,20 +92,29 @@ body {
 }
 
 .container {
-    width: 80%;
+    width: 55%;
     margin: 0 auto;
 }
 
 header {
     background: #333;
     color: white;
-    padding: 1rem 0;
+    padding: 2rem 0;
 }
 
 header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo-img {
+  width: 60px; /* adjust as needed */
+  margin-right: 10px;
 }
 
 header .logo h1 {
@@ -75,6 +166,10 @@ header nav ul li a {
 
 .cta-button:hover {
     background: #3b9e2b;
+}
+
+.how-it-works h2 {
+    padding: 20px;
 }
 
 .how-it-works, .services, .why-choose-us {
