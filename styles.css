@@ -1,11 +1,32 @@
 /* Header Styles */
-.site-header {
+:root {
+    --accent: #4CD43B; /* primary green (logo/CTA) */
+    --accent-dark: #3b9e2b; /* darker shade for hovers */
+    --muted-text: #cfcfcf;
+    --footer-height: 72px;
+}
+ .site-header {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 18px 32px;
+    border-bottom: 5px solid #4CD43B;
+html, body {
+    height: 100%;
+}
+
+/* make page a column flex layout so footer can sit at the bottom */
+body {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 32px;
-    background: #fff;
-    border-top: 8px solid #4CD43B;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #000;
+    color: #fff;
+}
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    /* border-top: 8px solid #4CD43B; */
     font-family: 'Montserrat', Arial, sans-serif;
 }
 
@@ -21,7 +42,7 @@
 }
 
 .header-nav a {
-    color: #222;
+    color: #fff;
     text-decoration: none;
     font-weight: 600;
     font-size: 1.1rem;
@@ -30,11 +51,11 @@
 }
 
 .header-nav a.active {
-    color: #c8102e;
+    color: var(--accent);
 }
 
 .header-nav .dropdown {
-    color: #009444;
+    color: var(--accent);
     font-size: 0.8em;
     margin-left: 4px;
 }
@@ -45,15 +66,17 @@
     gap: 16px;
 }
 
+/* Make header social icons same size and color (accent green) */
 .header-right .social img {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     margin-right: 4px;
+    /* No color filter, keep original SVG color */
 }
 
 .call-btn {
-    border: 2px solid #c8102e;
-    color: #c8102e;
+    border: 2px solid var(--accent);
+    color: var(--accent);
     padding: 8px 18px;
     border-radius: 6px;
     font-weight: 600;
@@ -63,12 +86,12 @@
 }
 
 .call-btn:hover {
-    background: #c8102e;
+    background: var(--accent);
     color: #fff;
 }
 
 .quote-btn {
-    background: #c8102e;
+    background: var(--accent);
     color: #fff;
     padding: 10px 22px;
     border-radius: 6px;
@@ -78,7 +101,7 @@
 }
 
 .quote-btn:hover {
-    background: #a00d23;
+    background: var(--accent-dark);
 }
 * {
     margin: 0;
@@ -89,6 +112,8 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    background: #000;
+    color: #fff;
 }
 
 .container {
@@ -96,9 +121,15 @@ body {
     margin: 0 auto;
 }
 
+main {
+    /* allow main content to grow and push footer to bottom */
+    flex: 1 0 auto;
+    padding-bottom: var(--footer-height); /* avoid content under fixed footer */
+}
+
 header {
-    background: #333;
-    color: white;
+    background: transparent;
+    color: #fff;
     padding: 2rem 0;
 }
 
@@ -137,7 +168,7 @@ header nav ul li a {
 }
 
 .hero {
-    background: url('images/green-forest-aerial-view-photo.jpeg') no-repeat center center/cover;
+    background: url('images/IMG_7194.jpg') no-repeat center center/cover;
     color: white;
     text-align: center;
     padding: 3rem 0;
@@ -168,6 +199,31 @@ header nav ul li a {
     background: #3b9e2b;
 }
 
+/* Stack hero CTA buttons vertically and center them */
+.hero .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem; /* space between h2/p/buttons */
+}
+.hero .cta-button {
+    display: inline-block;
+    margin: 0.25rem 0;
+}
+
+/* Slightly differentiate the SMS button if desired */
+.hero .sms-button {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+.hero .sms-button:hover {
+    background: var(--accent-dark);
+}
+
 .how-it-works h2 {
     padding: 20px;
 }
@@ -179,7 +235,208 @@ header nav ul li a {
 
 .how-it-works .steps, .why-choose-us .reasons {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+/* How It Works: card-style steps */
+.how-it-works .steps {
+    counter-reset: step;
+}
+.how-it-works .step {
+    background: #0f0f0f; /* match site dark panels */
+    color: #fff;
+    border-radius: 14px;
+    padding: 4rem 1.25rem 1.5rem 1.25rem; /* increased top padding so content clears badge */
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    flex: 1 1 320px;
+    max-width: 360px;
+    height: 260px; /* uniform height for all cards */
+    position: relative;
+    overflow: visible; /* allow the badge to sit above the card edge if needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.5rem;
+}
+.how-it-works .step::before {
+    counter-increment: step;
+    content: counter(step);
+    position: absolute;
+    top: 12px; /* place badge inside the top of the card */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--accent); /* green badge to match site */
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.15rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+    z-index: 5; /* ensure it sits above card content */
+}
+.how-it-works .step img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    margin-bottom: 0.25rem;
+}
+.how-it-works .step p {
+    margin: 0;
+    font-weight: 700;
+    color: var(--accent); /* green heading */
+    font-size: 1.05rem;
+}
+.how-it-works .step p + p {
+    margin-top: 0.25rem;
+    font-weight: 600;
+    color: #e6e6e6;
+    font-size: 0.95rem;
+}
+.how-it-works .step .desc {
+    margin-top: 0.5rem;
+    font-weight: 400;
+    color: #cfcfcf;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.how-it-works {
+    padding-top: 2rem;
+    padding-bottom: 2.5rem;
+    background: transparent;
+}
+
+@media (max-width: 900px) {
+    .how-it-works .steps {
+        flex-direction: column;
+        align-items: center;
+    }
+    .how-it-works .step { width: 90%; }
+}
+
+/* Testimonials layout */
+.testimonial-list {
+    display: flex;
+    gap: 1rem;
+    justify-content: center; /* center the row */
+    align-items: stretch;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0.5rem auto;
+}
+
+.testimonial {
+    background: #0f0f0f;
+    padding: 1.25rem;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+    color: #ddd;
+    flex: 1 1 300px; /* responsive: grows but minimum 300px */
+    max-width: 360px;
+}
+
+/* Trustindex widget styling to match site theme */
+#trustindex-widget {
+    max-width: 900px;
+    margin: 1.5rem auto;
+    background: #0b0b0b;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    border: 1px solid rgba(76,204,59,0.06);
+    color: #e8e8e8;
+    position: relative;
+    z-index: 99999; /* keep widget above footer */
+    margin-bottom: 2rem;
+}
+
+#trustindex-widget a {
+    color: var(--accent);
+}
+
+/* Make sure widget content flows nicely on small screens */
+#trustindex-widget .ti-widget, #trustindex-widget iframe {
+    width: 100% !important;
+}
+
+/* Floating Trustindex widget container (force top-most in Chrome) */
+#trustindex-floating {
+    position: fixed !important;
+    right: 1.25rem !important;
+    bottom: 1.25rem !important;
+    z-index: 2147483647 !important; /* near-maximum */
+    width: 360px;
+    max-width: calc(100% - 2.5rem);
+    background: transparent;
+    pointer-events: auto;
+}
+
+#trustindex-floating #trustindex-widget {
+    background: #0b0b0b;
+    padding: 0.75rem;
+    border-radius: 10px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+    border: 1px solid rgba(76,204,59,0.06);
+    position: relative !important;
+    z-index: 2147483647 !important;
+}
+
+#trustindex-close {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background: var(--accent);
+    color: #000;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    font-size: 18px;
+}
+
+@media (max-width: 700px) {
+    #trustindex-floating {
+        position: static;
+        width: auto;
+        margin: 1rem auto;
+        right: auto;
+        bottom: auto;
+    }
+    #trustindex-close { display: none; }
+}
+
+/* Force any iframe or widget content to sit above page elements */
+#trustindex-floating iframe, #trustindex-floating .ti-widget, #trustindex-floating * {
+    z-index: 2147483647 !important;
+}
+
+/* Lower footer further to avoid overlap */
+footer {
+    z-index: 0 !important;
+}
+
+/* Ensure footer stays at bottom when page content is short */
+footer {
+    margin-top: auto;
+    background: #222;
+    position: relative;
+    z-index: 1; /* ensure footer stays beneath floating elements */
+}
+
+/* If the widget is still covered it may be due to a stacking context created by a parent element
+   (transforms, z-index, or position). Force the testimonials section and widget container
+   into a high stacking context as well. */
+.testimonials {
+    position: relative;
+    z-index: 99998;
 }
 
 .step, .reason {
@@ -201,9 +458,212 @@ header nav ul li a {
     margin: 10px 0;
 }
 
+/* Fixed footer (sticky to bottom) */
 footer {
+    position: fixed !important;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: var(--footer-height);
     background: #333;
     color: white;
-    text-align: center;
-    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    z-index: 900 !important; /* below floating widget */
 }
+
+/* Ensure footer content is centered regardless of .container width */
+footer .container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+footer p {
+    margin: 0;
+    text-align: center;
+}
+
+/* ===== Contact Form Styles ===== */
+.contact-section {
+    background: #0f0f0f;
+    padding: 3rem 1rem;
+    text-align: center;
+    color: #ddd;
+}
+.contact-section .container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+.contact-section p {
+    font-size: 1rem;
+
+/* Gallery styles */
+.upload-panel {
+    background: #fffae6 !important; /* debug yellow */
+    padding: 1rem !important;
+    border-radius: 10px !important;
+    margin: 1.5rem 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 0.6rem !important;
+    align-items: center !important;
+    justify-items: center !important;
+    border: 2px solid #e67c00 !important;
+    box-shadow: 0 0 0 4px #ffe0b2 !important;
+}
+body .container .upload-panel {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 0.6rem !important;
+    align-items: center !important;
+    justify-items: center !important;
+    background: rgba(255,255,255,0.02);
+    border-radius: 10px;
+    margin: 1.5rem 0;
+    padding: 1rem;
+}
+
+@media (max-width: 1100px) {
+    body .container .upload-panel {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+@media (max-width: 700px) {
+    body .container .upload-panel {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+body .container .upload-panel {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+}
+}
+.upload-panel .form-row { margin-bottom: 0.75rem; }
+.upload-panel label { display:block; font-weight:600; margin-bottom:0.25rem; }
+.upload-panel .upload-placeholder { display:block; width:100%; max-width:150px; height:100px; object-fit:cover; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.45); }
+
+@media (max-width: 1100px) {
+    .upload-panel { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 700px) {
+    .upload-panel { grid-template-columns: repeat(2, 1fr); }
+    .upload-panel .upload-placeholder { height:120px; max-width:220px; }
+}
+.gallery-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+.gallery-item {
+    background: #0b0b0b;
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+.gallery-item .pair { display:flex; gap:0.5rem; }
+.gallery-item .pair .img { flex:1; overflow:hidden; border-radius:6px; }
+.gallery-item .pair img { width:100%; height:120px; object-fit:cover; display:block; }
+.gallery-item .meta { display:flex; justify-content:space-between; align-items:center; margin-top:0.5rem; }
+.gallery-item .desc { color:#ddd; margin:0; font-size:0.9rem; }
+.btn-sm { padding:6px 10px; font-size:0.9rem; }
+
+@media (min-width: 1200px) {
+    .gallery-list { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+}
+
+@media (max-width: 700px) {
+    .gallery-item .pair { flex-direction: column; }
+    .gallery-item .pair img { height: 160px; }
+}
+
+/* Lightbox modal styles */
+.lightbox { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.75); z-index: 2147483646; }
+.lightbox.open { display: flex; }
+.lb-content { max-width: 1100px; width: calc(100% - 2rem); background: transparent; padding: 1rem; }
+.lb-pair { display:flex; gap:1rem; }
+.lb-img { flex:1; background:#000; border-radius:8px; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+.lb-img img { width:100%; height:70vh; object-fit:contain; }
+.lb-desc { color:#ddd; text-align:center; margin-top:0.5rem; }
+.lb-close { position: absolute; right: 1rem; top: 1rem; background: var(--accent); color:#000; border:none; width:40px; height:40px; border-radius:50%; font-size:22px; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,0.5); }
+
+@media (max-width: 900px) {
+    .lb-pair { flex-direction: column; }
+    .lb-img img { height: 45vh; }
+}
+
+
+.contact-form {
+    background: #111;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    text-align: left;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: #ddd;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #444;
+    background: #1b1b1b;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #4CD43B;
+    outline: none;
+}
+
+.btn-submit {
+  display: block;
+  width: 100%;
+  padding: 0.85rem;
+  background: #4CD43B;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.25s ease;
+}
+
+.btn-submit:hover {
+  background: #4CD43B;
+}
+

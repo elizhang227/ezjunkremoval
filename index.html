@@ -5,24 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Junk Removal Business</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- fallback PNG/ICO (optional) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
 </head>
 <body>
         <!-- Header -->
         <header class="site-header">
             <div class="header-left">
-                <img src="images/EZ_Junk_Removal_logo_transparent.png" alt="EZ_Junk_Removal_logo_transparent" class="logo">
+                <a href="/" class="logo-link">
+                    <img src="images/EZ_Junk_Removal_logo_transparent.png" alt="EZ Junk Removal Logo" class="logo">
+                </a>
             </div>
             <nav class="header-nav">
                 <a href="#" class="active">Junk Removal <span class="dropdown">&#9660;</span></a>
-                <a href="#">Our Pricing</a>
-                <a href="#">Dumpster Rental</a>
-                <a href="#">Demolition</a>
+                <a href="testimonials.html">Testimonials</a>
+                <a href="gallery.html">Gallery</a>
                 <a href="#">Areas We Serve</a>
+                <a href="pricing.html">Pricing</a>
                 <a href="#">Contact Us</a>
             </nav>
             <div class="header-right">
-                <a href="#" class="social"><img src="images/facebook-icon.png" alt="Facebook"></a>
-                <a href="#" class="social"><img src="images/instagram-icon.png" alt="Instagram"></a>
+                <a href="#" class="social"><img src="images/facebook-svgrepo-com.svg" alt="Facebook"></a>
+                <a href="#" class="social"><img src="images/instagram-svgrepo-com.svg" alt="Instagram"></a>
                 <a href="tel:770-580-3756" class="call-btn">CALL 770-580-3756</a>
                 <a href="#" class="quote-btn">GET A QUOTE</a>
             </div>
@@ -31,11 +35,57 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h2>Fast, Reliable Junk Removal at Affordable Prices</h2>
-            <p>Serving Your City</p>
+            <h2>EZiest Way To Get Rid Of Your Junk</h2>
+            <p>Hauling Unwanted Items From Homes and Businesses</p>
             <a href="#estimate-form" class="cta-button">Request a Free Estimate</a>
+            <!-- SMS/text shortcut: opens the default messaging app on mobile devices -->
+            <a href="sms:+17705803756" class="cta-button sms-button">Text Us Now</a>
         </div>
     </section>
+
+    <section id="contact-form-section" class="contact-section">
+        <div class="container">
+            <h2>Let's Get Started!</h2>
+            <p>Thank you for your interest in EZ Junk Removal! Fill out the form below or call us at <strong>(770) 580-3756</strong></p>
+
+            <form id="contactForm" class="contact-form" method="POST" action="submit_form.php">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email (optional)</label>
+                    <input type="email" id="email" name="email" placeholder="Your email address">
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Service Needed</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service</option>
+                        <option value="Residential Junk Removal">Residential Junk Removal</option>
+                        <option value="Furniture & Appliance Removal">Furniture & Appliance Removal</option>
+                        <option value="Construction Debris Cleanup">Construction Debris Cleanup</option>
+                        <option value="Yard Waste Removal">Yard Waste Removal</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Additional Details</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Describe your project (optional)"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-submit">Get My Quote Today</button>
+            </form>
+        </div>
+    </section>
+
 
     <!-- How It Works Section -->
     <section class="how-it-works">
@@ -43,16 +93,19 @@
             <h2>How It Works</h2>
             <div class="steps">
                 <div class="step">
-                    <img src="images/calendar.png" alt="Book Pickup">
-                    <p>Book Your Pickup</p>
+                        <p class="title">Get Your Free Estimate</p>
+                        <p class="sub">Reach Out to Us</p>
+                        <p class="desc">Call <a href="tel:770-580-3756">770-580-3756</a> or fill out our online form to describe your junk, and we'll give you a free, no‑obligation estimate.</p>
                 </div>
                 <div class="step">
-                    <img src="images/clock.png" alt="On Time Arrival">
-                    <p>We Arrive On-Time</p>
+                        <p class="title">We Arrive On-Time</p>
+                        <p class="sub">Prompt & Professional</p>
+                        <p class="desc">Our team shows up when scheduled, assesses the job, and gets to work quickly and safely.</p>
                 </div>
                 <div class="step">
-                    <img src="images/litter.png" alt="Remove Junk">
-                    <p>We Remove Your Junk</p>
+                        <p class="title">We Remove Your Junk</p>
+                        <p class="sub">Clean & Responsible</p>
+                        <p class="desc">We haul away items efficiently, recycling or donating when possible so you get a neat, clutter‑free space.</p>
                 </div>
             </div>
         </div>
