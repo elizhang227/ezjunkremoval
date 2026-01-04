@@ -37,10 +37,10 @@
             </a>
         </div>
         <nav class="header-nav" id="mobile-nav">
-            <a href="#">Junk Removal</a>
+            <a href="index.html">Home</a>
             <a href="testimonials.html">Testimonials</a>
             <a href="gallery.html">Gallery</a>
-            <a href="#">Areas We Serve</a>
+            <a href="service-areas.html">Areas We Serve</a>
             <a href="pricing.html">Pricing</a>
             <a href="contact-us.html">Contact Us</a>
         </nav>
@@ -120,6 +120,21 @@
             });
         }
     });
-    </script>
+        // Responsive call-btn text
+        document.addEventListener('DOMContentLoaded', function() {
+            var callBtn = document.querySelector('.call-btn');
+            var originalText = callBtn ? callBtn.textContent : '';
+            function updateCallBtnText() {
+                if (!callBtn) return;
+                if (window.innerWidth < 568) {
+                    callBtn.textContent = 'CALL US';
+                } else {
+                    callBtn.textContent = originalText;
+                }
+            }
+            updateCallBtnText();
+            window.addEventListener('resize', updateCallBtnText);
+        });
+        </script>
 </body>
 </html>

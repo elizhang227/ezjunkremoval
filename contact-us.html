@@ -1,17 +1,46 @@
 </main>
 <script>
-// Hamburger menu toggle
-(function() {
-    let hamburger = document.getElementById('hamburger-menu');
-    let nav = document.getElementById('mobile-nav');
+// Hamburger menu toggle with animated dropdown icon
+document.addEventListener('DOMContentLoaded', function() {
+    var hamburger = document.getElementById('hamburger-menu');
+    var nav = document.getElementById('mobile-nav');
     if (hamburger && nav) {
         hamburger.addEventListener('click', function() {
-            const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+            var expanded = hamburger.getAttribute('aria-expanded') === 'true';
             hamburger.setAttribute('aria-expanded', !expanded);
             nav.classList.toggle('open');
+            hamburger.classList.toggle('open');
+        });
+        // Close menu when a link is clicked (mobile only)
+        var links = nav.querySelectorAll('a');
+        links.forEach(function(link) {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 900) {
+                    nav.classList.remove('open');
+                    hamburger.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                }
+            });
         });
     }
-})();
+});
+</script>
+<script>
+// Responsive call-btn text
+document.addEventListener('DOMContentLoaded', function() {
+    var callBtn = document.querySelector('.call-btn');
+    var originalText = callBtn ? callBtn.textContent : '';
+    function updateCallBtnText() {
+        if (!callBtn) return;
+        if (window.innerWidth < 568) {
+            callBtn.textContent = 'CALL US';
+        } else {
+            callBtn.textContent = originalText;
+        }
+    }
+    updateCallBtnText();
+    window.addEventListener('resize', updateCallBtnText);
+});
 </script>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,10 +60,10 @@
             </a>
         </div>
         <nav class="header-nav" id="mobile-nav">
-            <a href="#">Junk Removal</a>
+            <a href="index.html">Home</a>
             <a href="testimonials.html">Testimonials</a>
             <a href="gallery.html">Gallery</a>
-            <a href="#">Areas We Serve</a>
+            <a href="service-areas.html">Areas We Serve</a>
             <a href="pricing.html">Pricing</a>
             <a href="contact-us.html">Contact Us</a>
         </nav>
@@ -53,7 +82,7 @@
         <div class="container" style="max-width:900px; margin:2.5rem auto;">
             <h1 style="text-align:center; margin-bottom:1.5rem;">Contact Us</h1>
             <p style="text-align:center; color:var(--muted-text); margin-bottom:2rem;">We're here to help! Reach out by phone, text, or the form below.</p>
-            <div style="display:flex; gap:2.5rem; align-items:flex-start; justify-content:center;">
+            <div class="contact-flex-row" style="display:flex; gap:2.5rem; align-items:flex-start; justify-content:center;">
                 <div id="contact-info" style="min-width:320px; max-width:400px; background:#181818; border-radius:10px; box-shadow:0 2px 12px #000; padding:2.5rem 2rem; color:#eee;">
                     <p style="font-weight:700; color:var(--accent); margin-bottom:1.25rem;">CONTACT INFORMATION</p>
                         <p style="margin-bottom:1.1rem;"><strong>Phone:</strong> <a href="tel:770-580-3756" style="color:var(--accent);">(770) 580-3756</a></p>
@@ -73,6 +102,10 @@
                     <div class="form-group">
                         <label for="email">Email (optional)</label>
                         <input type="email" id="email" name="email" placeholder="Your email address">
+                    </div>
+                    <div class="form-group">
+                        <label for="preferred-date">Preferred Service Date</label>
+                        <input type="date" id="preferred-date" name="preferred_date" min="2026-01-05" required>
                     </div>
                     <div class="form-group">
                         <label for="message">How can we help?</label>

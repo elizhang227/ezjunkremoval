@@ -17,10 +17,10 @@
                 </a>
             </div>
         <nav class="header-nav" id="mobile-nav">
-            <a href="#">Junk Removal</a>
+            <a href="index.html">Home</a>
             <a href="testimonials.html">Testimonials</a>
             <a href="gallery.html">Gallery</a>
-            <a href="#">Areas We Serve</a>
+            <a href="service-areas.html">Areas We Serve</a>
             <a href="pricing.html">Pricing</a>
             <a href="contact-us.html">Contact Us</a>
         </nav>
@@ -63,6 +63,20 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    // Change call-btn text on small screens
+    var callBtn = document.querySelector('.call-btn');
+    var originalText = callBtn ? callBtn.textContent : '';
+    function updateCallBtnText() {
+        if (!callBtn) return;
+        if (window.innerWidth < 568) {
+            callBtn.textContent = 'CALL US';
+        } else {
+            callBtn.textContent = originalText;
+        }
+    }
+    updateCallBtnText();
+    window.addEventListener('resize', updateCallBtnText);
 });
 </script>
 
@@ -149,12 +163,49 @@ document.addEventListener('DOMContentLoaded', function() {
     <section class="services">
         <div class="container">
             <h2>Our Services</h2>
-            <ul>
-                <li>Residential</li>
-                <li>Commercial</li>
-                <li>Construction Cleanup</li>
-            </ul>
-            <a href="#" class="cta-button">View All Services</a>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="images/lightning-thunder-svgrepo-com.svg" alt="Other Services" class="service-icon">
+                    <h3>Same-Day Service</h3>
+                    <p>Fast pickup and removal for your junk on the same day you call.</p>
+                </div>
+                <div class="service-card">
+                    <img src="images/house-svgrepo-com.svg" alt="Residential" class="service-icon">
+                    <h3>Residential Junk Removal</h3>
+                    <p>We clear out unwanted items from homes, apartments, and condos.</p>
+                </div>
+                <div class="service-card">
+                    <img src="images/building-2-svgrepo-com.svg" alt="Commercial" class="service-icon">
+                    <h3>Commercial Junk Removal</h3>
+                    <p>Office cleanouts, retail spaces, and business junk hauling.</p>
+                </div>
+                <div class="service-card">
+                    <img src="images/construction-crane-lifter-svgrepo-com.svg" alt="Construction Cleanup" class="service-icon">
+                    <h3>Construction Cleanup</h3>
+                    <p>Debris removal for renovations, remodels, and new builds.</p>
+                </div>
+                <div class="service-card">
+                    <img src="images/new-life-household-appliances-set-svgrepo-com.svg" alt="Furniture & Appliance Removal" class="service-icon">
+                    <h3>Furniture & Appliance Removal</h3>
+                    <p>We haul away old furniture, appliances, and bulky items.</p>
+                </div>
+                <div class="service-card">
+                    <img src="images/yard-tree-svgrepo-com.svg" alt="Yard Waste Removal" class="service-icon">
+                    <h3>Yard Waste Removal</h3>
+                    <p>Branches, leaves, and outdoor debris cleared from your property.</p>
+                </div>
+                <div class="service-card">
+                    <img src="images/garage-svgrepo-com.svg" alt="Garage Cleanouts" class="service-icon">
+                    <h3>Garage Cleanouts</h3>
+                    <p>Clearing out clutter and junk from your garage space.</p>
+                </div>
+                <div class="service-card">
+                    <img src="images/hammer-sledgehammer-svgrepo-com.svg" alt="Light Demolition" class="service-icon">
+                    <h3>Light Demolition</h3>
+                    <p>Safe and efficient demolition of small structures and fixtures.</p>
+                </div>
+            </div>
+            <a href="#" class="cta-button" style="margin-top:2rem;">View All Services</a>
         </div>
     </section>
 
@@ -162,18 +213,26 @@ document.addEventListener('DOMContentLoaded', function() {
     <section class="why-choose-us">
         <div class="container">
             <h2>Why Choose Us</h2>
-            <div class="reasons">
-                <div class="reason">
-                    <img src="https://via.placeholder.com/50" alt="Eco Friendly">
-                    <p>Eco-Friendly</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="images/recycle-5-svgrepo-com.svg" alt="Eco Friendly" class="service-icon">
+                    <h3>Eco-Friendly</h3>
+                    <p>We recycle and donate whenever possible to minimize landfill waste.</p>
                 </div>
-                <div class="reason">
-                    <img src="https://via.placeholder.com/50" alt="On-Time">
-                    <p>On-Time Service</p>
+                <div class="service-card">
+                    <img src="images/time-watch-1-svgrepo-com.svg" alt="On-Time" class="service-icon">
+                    <h3>On-Time Service</h3>
+                    <p>Our team arrives promptly and completes jobs efficiently.</p>
                 </div>
-                <div class="reason">
-                    <img src="https://via.placeholder.com/50" alt="Affordable">
-                    <p>Affordable Pricing</p>
+                <div class="service-card">
+                    <img src="images/money-cash-svgrepo-com.svg" alt="Affordable" class="service-icon">
+                    <h3>Affordable Pricing</h3>
+                    <p>Competitive rates with clear, upfront quotes for every project.</p>
+                </div>
+                <div class="service-card">
+                    <img src="images/grinning-face-svgrepo-com.svg" alt="Friendly Team" class="service-icon">
+                    <h3>Friendly Team</h3>
+                    <p>Courteous, professional staff focused on your satisfaction.</p>
                 </div>
             </div>
         </div>

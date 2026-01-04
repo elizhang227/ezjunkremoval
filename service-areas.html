@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Areas | EZ Junk Removal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-left">
+            <a href="/" class="logo-link">
+                <img src="images/EZ_Junk_Removal_logo_transparent.png" alt="EZ Junk Removal Logo" class="logo">
+            </a>
+        </div>
+        <nav class="header-nav" id="mobile-nav">
+            <a href="index.html">Home</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="service-areas.html">Areas We Serve</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact-us.html">Contact Us</a>
+        </nav>
+        <div class="header-right">
+            <a href="#" class="social"><img src="images/facebook-svgrepo-com.svg" alt="Facebook"></a>
+            <a href="#" class="social"><img src="images/instagram-svgrepo-com.svg" alt="Instagram"></a>
+            <a href="tel:770-580-3756" class="call-btn">CALL 770-580-3756</a>
+            <a href="submit-form.html" class="quote-btn">GET A QUOTE</a>
+            <button class="hamburger" id="hamburger-menu" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container" style="max-width:1100px; margin:2.5rem auto;">
+            <h1 style="text-align:center; margin-bottom:1.5rem;">Areas We Serve</h1>
+            <p style="text-align:center; color:var(--muted-text); margin-bottom:2rem;">EZ Junk Removal proudly serves the following cities and communities in Georgia:</p>
+            <div class="contact-flex-row" style="display:flex; gap:2.5rem; align-items:flex-start; justify-content:center; flex-wrap:wrap;">
+                <ul id="service-area-list" style="list-style:none; padding:0; color:#fff; font-size:1.15rem; min-width:260px; max-width:600px; background:#181818; border-radius:10px; box-shadow:0 2px 12px #000; margin-bottom:2rem; height:100%; display:flex; flex-direction:column; justify-content:center;">
+                    <li style="text-align:center;">Duluth, GA</li>
+                    <li style="text-align:center;">Norcross, GA</li>
+                    <li style="text-align:center;">Suwanee, GA</li>
+                    <li style="text-align:center;">Johns Creek, GA</li>
+                    <li style="text-align:center;">Alpharetta, GA</li>
+                    <li style="text-align:center;">Buford, GA</li>
+                    <li style="text-align:center;">Sugar Hill, GA</li>
+                    <li style="text-align:center;">Lawrenceville, GA</li>
+                    <li style="text-align:center;">Cumming, GA</li>
+                    <li style="text-align:center;">Tucker, GA</li>
+                    <li style="text-align:center;">Lilburn, GA</li>
+                    <li style="text-align:center;">Milton, GA</li>
+                    <li style="text-align:center;">Roswell, GA</li>
+                    <li style="text-align:center;">Sandy Springs, GA</li>
+                    <li style="text-align:center;">Dunwoody, GA</li>
+                    <li style="text-align:center;">Chamblee, GA</li>
+                    <li style="text-align:center;">Brookhaven, GA</li>
+                    <style>
+                        @media (max-width: 700px) {
+                            #service-area-list {
+                                margin-left: auto !important;
+                                margin-right: auto !important;
+                                max-width: 95vw !important;
+                            }
+                        }
+                        #service-area-list {
+                            overflow-y: scroll;
+                            max-height: 15.5em;
+                            display: block !important;
+                            box-sizing: border-box;
+                        }
+                        #service-area-list li {
+                            text-align: center;
+                            padding: 0.5em 0;
+                        }
+                        #service-area-list::-webkit-scrollbar {
+                            width: 10px;
+                        }
+                        #service-area-list::-webkit-scrollbar-thumb {
+                            background: #39ff14;
+                            border-radius: 8px;
+                        }
+                        #service-area-list::-webkit-scrollbar-track {
+                            background: #111;
+                            border-radius: 8px;
+                        }
+                        #service-area-list {
+                            scrollbar-color: #39ff14 #111;
+                            scrollbar-width: thin;
+                        }
+                    </style>
+                </ul>
+                <form id="contactForm" class="contact-form" method="POST" action="submit_form.php" style="flex:1; min-width:260px; max-width:600px;">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email (optional)</label>
+                        <input type="email" id="email" name="email" placeholder="Your email address">
+                    </div>
+                    <div class="form-group">
+                        <label for="preferred-date">Preferred Service Date</label>
+                        <input type="date" id="preferred-date" name="preferred_date" min="2026-01-05" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">How can we help?</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Your message" style="resize:none;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-submit" style="width:100%; margin-top:1rem;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 EZ Junk Removal | All rights reserved</p>
+        </div>
+    </footer>
+
+    <script>
+    // Hamburger menu toggle with animated dropdown icon
+    document.addEventListener('DOMContentLoaded', function() {
+        var hamburger = document.getElementById('hamburger-menu');
+        var nav = document.getElementById('mobile-nav');
+        if (hamburger && nav) {
+            hamburger.addEventListener('click', function() {
+                var expanded = hamburger.getAttribute('aria-expanded') === 'true';
+                hamburger.setAttribute('aria-expanded', !expanded);
+                nav.classList.toggle('open');
+                hamburger.classList.toggle('open');
+            });
+            // Close menu when a link is clicked (mobile only)
+            var links = nav.querySelectorAll('a');
+            links.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 900) {
+                        nav.classList.remove('open');
+                        hamburger.classList.remove('open');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+        }
+        // Change call-btn text on small screens
+        var callBtn = document.querySelector('.call-btn');
+        var originalText = callBtn ? callBtn.textContent : '';
+        function updateCallBtnText() {
+            if (!callBtn) return;
+            if (window.innerWidth < 568) {
+                callBtn.textContent = 'CALL US';
+            } else {
+                callBtn.textContent = originalText;
+            }
+        }
+        updateCallBtnText();
+        window.addEventListener('resize', updateCallBtnText);
+    });
+    </script>
+</body>
+</html>
