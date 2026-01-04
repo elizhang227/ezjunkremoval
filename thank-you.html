@@ -29,25 +29,56 @@
                 <img src="images/EZ_Junk_Removal_logo_transparent.png" alt="EZ Junk Removal Logo" class="logo">
             </a>
         </div>
-        <nav class="header-nav">
-            <a href="#" class="active">Junk Removal <span class="dropdown">&#9660;</span></a>
+        <div class="header-left">
+            <a href="/" class="logo-link">
+                <img src="images/EZ_Junk_Removal_logo_transparent.png" alt="EZ Junk Removal Logo" class="logo">
+            </a>
+        </div>
+        <nav class="header-nav" id="mobile-nav">
+            <a href="#">Junk Removal</a>
             <a href="testimonials.html">Testimonials</a>
             <a href="gallery.html">Gallery</a>
             <a href="#">Areas We Serve</a>
             <a href="pricing.html">Pricing</a>
-            <a href="#">Contact Us</a>
+            <a href="contact-us.html">Contact Us</a>
         </nav>
         <div class="header-right">
             <a href="#" class="social"><img src="images/facebook-svgrepo-com.svg" alt="Facebook"></a>
             <a href="#" class="social"><img src="images/instagram-svgrepo-com.svg" alt="Instagram"></a>
             <a href="tel:770-580-3756" class="call-btn">CALL 770-580-3756</a>
             <a href="#" class="quote-btn">GET A QUOTE</a>
+            <button class="hamburger" id="hamburger-menu" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav">
+                <span></span><span></span><span></span>
+            </button>
         </div>
-    </header>
-    <div class="message-box">
-        <h1>Thank You!</h1>
-        <p>We received your request and will contact you shortly.</p>
-        <p><a href="/">Return to Home</a></p>
+</body>
+<script>
+// Hamburger menu toggle
+(function() {
+    let hamburger = document.getElementById('hamburger-menu');
+    let nav = document.getElementById('mobile-nav');
+    if (hamburger && nav) {
+        hamburger.addEventListener('click', function() {
+            const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !expanded);
+            nav.classList.toggle('open');
+        });
+    }
+})();
+</script>
     </div>
 </body>
+</body>
+<script>
+// Hamburger menu toggle
+const hamburger = document.getElementById('hamburger-menu');
+const nav = document.getElementById('mobile-nav');
+if (hamburger && nav) {
+    hamburger.addEventListener('click', function() {
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !expanded);
+        nav.classList.toggle('open');
+    });
+}
+</script>
 </html>

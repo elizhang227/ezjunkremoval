@@ -1,119 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery — EZ Junk Removal</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+    .upload-panel {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 1rem !important;
+        border-radius: 10px !important;
+        margin: 1.5rem 0 !important;
+        padding: 1rem !important;
+    }
+    .upload-panel .upload-placeholder {
+        width: 100% !important;
+        max-width: 505px !important;
+        height: 367px !important;
+        object-fit: cover !important;
+        display: block !important;
+        transition: transform 0.3s cubic-bezier(.4,1.6,.6,1);
+    }
+    .upload-panel .upload-placeholder:hover {
+        transform: scale(1.12);
+        z-index: 2;
+        box-shadow: 0 8px 32px #000;
+    }
+    </style>
 </head>
 <body>
-<header class="site-header">
-    <div class="header-left">
-        <a href="/" class="logo-link"><img src="images/EZ_Junk_Removal_logo_transparent.png" alt="EZ Junk" class="logo"></a>
-    </div>
-    <nav class="header-nav">
-        <a href="#" class="active">Junk Removal <span class="dropdown">&#9660;</span></a>
-        <a href="testimonials.html">Testimonials</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="#">Areas We Serve</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="#">Contact Us</a>
-    </nav>
-    <div class="header-right">
-        <a href="#" class="social"><img src="images/facebook-svgrepo-com.svg" alt="Facebook"></a>
-        <a href="#" class="social"><img src="images/instagram-svgrepo-com.svg" alt="Instagram"></a>
-        <a href="tel:770-580-3756" class="call-btn">CALL 770-580-3756</a>
-        <a href="#" class="quote-btn">GET A QUOTE</a>
-    </div>
-</header>
+    <header class="site-header">
+        <div class="header-left">
+            <a href="/" class="logo-link">
+                <img src="images/EZ_Junk_Removal_logo_transparent.png" alt="EZ Junk Removal Logo" class="logo">
+            </a>
+        </div>
+        <nav class="header-nav" id="mobile-nav">
+            <a href="#">Junk Removal</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="#">Areas We Serve</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact-us.html">Contact Us</a>
+        </nav>
+        <div class="header-right">
+            <a href="#" class="social"><img src="images/facebook-svgrepo-com.svg" alt="Facebook"></a>
+            <a href="#" class="social"><img src="images/instagram-svgrepo-com.svg" alt="Instagram"></a>
+            <a href="tel:770-580-3756" class="call-btn">CALL 770-580-3756</a>
+            <a href="submit-form.html" class="quote-btn">GET A QUOTE</a>
+            <button class="hamburger" id="hamburger-menu" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
 
-<main class="container">
-    <h1 style="text-align:center; margin-top:3rem;">Explore Our Gallery Of Past Jobs</h1>
+    <main>
+        <h1 style="text-align:center; margin-top:3rem;">Explore Our Gallery Of Past Jobs</h1>
+        <section class="upload-panel">
+            <img src="gallery/IMG_7481.jpg" alt="Gallery Placeholder" class="upload-placeholder">
+            <img src="gallery/IMG_7482.jpg" alt="Gallery Placeholder" class="upload-placeholder">
+            <img src="gallery/IMG_7492.jpg" alt="Gallery Placeholder" class="upload-placeholder">
+            <img src="gallery/IMG_7494.jpg" alt="Gallery Placeholder" class="upload-placeholder">
+            <img src="gallery/IMG_8027.jpg" alt="Gallery Placeholder" class="upload-placeholder">
+            <img src="gallery/IMG_8115.jpg" alt="Gallery Placeholder" class="upload-placeholder">
+        </section>
+        <!-- Lightbox Modal for Upload-Panel Images -->
+        <div id="imgLightbox" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,0.92);align-items:center;justify-content:center;">
+            <button id="imgLbClose" style="position:absolute;top:24px;right:32px;font-size:2.5rem;background:none;border:none;color:#fff;cursor:pointer;z-index:2;">&times;</button>
+            <button id="imgLbPrev" style="position:absolute;top:50%;left:24px;transform:translateY(-50%);font-size:2.5rem;background:none;border:none;color:#fff;cursor:pointer;z-index:2;">&#8592;</button>
+            <button id="imgLbNext" style="position:absolute;top:50%;right:24px;transform:translateY(-50%);font-size:2.5rem;background:none;border:none;color:#fff;cursor:pointer;z-index:2;">&#8594;</button>
+            <img id="imgLbImg" src="" alt="Full Size" style="max-width:90vw;max-height:90vh;box-shadow:0 8px 32px #000;border-radius:12px;z-index:1;">
+        </div>
+    </main>
 
-<section class="upload-panel">
-    <img src="gallery/IMG_7481.jpg" alt="Gallery Placeholder" class="upload-placeholder" style="width:100%;max-width:150px;height:100px;object-fit:cover;display:block;">
-    <img src="gallery/IMG_7482.jpg" alt="Gallery Placeholder" class="upload-placeholder" style="width:100%;max-width:150px;height:100px;object-fit:cover;display:block;">
-    <img src="gallery/IMG_7492.jpg" alt="Gallery Placeholder" class="upload-placeholder" style="width:100%;max-width:150px;height:100px;object-fit:cover;display:block;">
-    <img src="gallery/IMG_7494.jpg" alt="Gallery Placeholder" class="upload-placeholder" style="width:100%;max-width:150px;height:100px;object-fit:cover;display:block;">
-    <img src="gallery/IMG_8027.jpg" alt="Gallery Placeholder" class="upload-placeholder" style="width:100%;max-width:150px;height:100px;object-fit:cover;display:block;">
-    <img src="gallery/IMG_8115.jpg" alt="Gallery Placeholder" class="upload-placeholder" style="width:100%;max-width:150px;height:100px;object-fit:cover;display:block;">
-</section>
-</main>
+    <footer>
+        <div class="container"><p>&copy; 2025 EZ Junk Removal</p></div>
+    </footer>
 
-<footer>
-    <div class="container"><p>&copy; 2025 EZ Junk Removal</p></div>
-</footer>
+    <script>
+    // Lightbox for upload-panel images
+    var uploadImgs = Array.prototype.slice.call(document.querySelectorAll('.upload-panel .upload-placeholder'));
+    var lb = document.getElementById('imgLightbox');
+    var lbImg = document.getElementById('imgLbImg');
+    var lbClose = document.getElementById('imgLbClose');
+    var lbPrev = document.getElementById('imgLbPrev');
+    var lbNext = document.getElementById('imgLbNext');
+    var lbIdx = 0;
 
-<!-- Lightbox Modal for Upload-Panel Images -->
-<div id="imgLightbox" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,0.92);align-items:center;justify-content:center;">
-    <button id="imgLbClose" style="position:absolute;top:24px;right:32px;font-size:2.5rem;background:none;border:none;color:#fff;cursor:pointer;z-index:2;">&times;</button>
-    <button id="imgLbPrev" style="position:absolute;top:50%;left:24px;transform:translateY(-50%);font-size:2.5rem;background:none;border:none;color:#fff;cursor:pointer;z-index:2;">&#8592;</button>
-    <button id="imgLbNext" style="position:absolute;top:50%;right:24px;transform:translateY(-50%);font-size:2.5rem;background:none;border:none;color:#fff;cursor:pointer;z-index:2;">&#8594;</button>
-    <img id="imgLbImg" src="" alt="Full Size" style="max-width:90vw;max-height:90vh;box-shadow:0 8px 32px #000;border-radius:12px;z-index:1;">
-</div>
-
-<script>
-// Lightbox for upload-panel images
-const uploadImgs = Array.from(document.querySelectorAll('.upload-panel .upload-placeholder'));
-const lb = document.getElementById('imgLightbox');
-const lbImg = document.getElementById('imgLbImg');
-const lbClose = document.getElementById('imgLbClose');
-const lbPrev = document.getElementById('imgLbPrev');
-const lbNext = document.getElementById('imgLbNext');
-let lbIdx = 0;
-
-function showLb(idx) {
-    if (idx < 0 || idx >= uploadImgs.length) return;
-    lbIdx = idx;
-    lbImg.src = uploadImgs[lbIdx].src;
-    lb.style.display = 'flex';
-}
-function hideLb() { lb.style.display = 'none'; lbImg.src = ''; }
-function nextLb() { showLb((lbIdx + 1) % uploadImgs.length); }
-function prevLb() { showLb((lbIdx - 1 + uploadImgs.length) % uploadImgs.length); }
-
-uploadImgs.forEach((img, i) => {
-    img.style.cursor = 'pointer';
-    img.addEventListener('click', () => showLb(i));
-});
-lbClose.addEventListener('click', hideLb);
-lbNext.addEventListener('click', nextLb);
-lbPrev.addEventListener('click', prevLb);
-lb.addEventListener('click', e => { if (e.target === lb) hideLb(); });
-document.addEventListener('keydown', e => {
-    if (lb.style.display === 'flex') {
-        if (e.key === 'Escape') hideLb();
-        if (e.key === 'ArrowRight') nextLb();
-        if (e.key === 'ArrowLeft') prevLb();
+    function showLb(idx) {
+        if (idx < 0 || idx >= uploadImgs.length) return;
+        lbIdx = idx;
+        lbImg.src = uploadImgs[idx].src;
+        lb.style.display = 'flex';
     }
-});
-</script>
+    function hideLb() { lb.style.display = 'none'; lbImg.src = ''; }
+    function nextLb() { showLb((lbIdx + 1) % uploadImgs.length); }
+    function prevLb() { showLb((lbIdx - 1 + uploadImgs.length) % uploadImgs.length); }
 
-<style>
-.upload-panel {
-    display: grid !important;
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 1rem !important;
-    border-radius: 10px !important;
-    margin: 1.5rem 0 !important;
-    padding: 1rem !important;
-}
-.upload-panel .upload-placeholder {
-    width: 100% !important;
-    max-width: 505px !important;
-    height: 367px !important;
-    object-fit: cover !important;
-    display: block !important;
-}
-</style>
-.upload-panel .upload-placeholder {
-    transition: transform 0.3s cubic-bezier(.4,1.6,.6,1);
-}
-.upload-panel .upload-placeholder:hover {
-    transform: scale(1.12);
-    z-index: 2;
-    box-shadow: 0 8px 32px #000;
-}
+    for (var i = 0; i < uploadImgs.length; i++) {
+        (function(i) {
+            uploadImgs[i].style.cursor = 'pointer';
+            uploadImgs[i].addEventListener('click', function() { showLb(i); });
+        })(i);
+    }
+    lbClose.addEventListener('click', hideLb);
+    lbNext.addEventListener('click', nextLb);
+    lbPrev.addEventListener('click', prevLb);
 
+    // Hamburger menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        var hamburger = document.getElementById('hamburger-menu');
+        var nav = document.getElementById('mobile-nav');
+        if (hamburger && nav) {
+            hamburger.addEventListener('click', function() {
+                var expanded = hamburger.getAttribute('aria-expanded') === 'true';
+                hamburger.setAttribute('aria-expanded', !expanded);
+                nav.classList.toggle('open');
+            });
+        }
+    });
+    </script>
 </body>
 </html>
