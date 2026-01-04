@@ -1,3 +1,30 @@
+@media (max-width: 700px) {
+    #contactForm .btn-submit {
+        width: 70% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: block !important;
+    }
+    #contact-form-section .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100% !important;
+        margin: 0 auto !important;
+        box-sizing: border-box;
+    }
+    #contactForm {
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+    #contact-form-section .container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
 /* Services Grid Section */
 .services-grid {
     display: grid;
@@ -382,6 +409,25 @@ header nav ul li a {
     text-align: center;
     padding: 3rem 0;
     height: 500px;
+    position: relative;
+    overflow: hidden;
+}
+/* Overlay for hero section */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 1;
+}
+.hero .hero-content {
+    position: relative;
+    z-index: 2;
+}
+.hero h2 {
+    color: #4CD43B;
+    text-shadow: 2px 2px 8px #000, 0 0 2px #000;
+}
 }
 
 .hero h2 {
@@ -702,7 +748,7 @@ footer p {
 /* ===== Contact Form Styles ===== */
 .contact-section {
     background: #0f0f0f;
-    padding: 3rem 1rem;
+    padding: 3rem 0rem;
     text-align: center;
     color: #ddd;
 }
